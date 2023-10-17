@@ -11,7 +11,28 @@ app.use(cors({
     origin: 'http://localhost:5173' 
 }));
 
+app.options('/racedata', (req, res) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+    res.header('Access-Control-Allow-Headers', 'task'); // Allow the 'task 'header
+    res.header('Access-Control-Allow-Methods', 'GET'); // Allow the GET method
+    // res.header('Access-Control-Allow-Methods', 'POST'); // Allow the POST method
+    // res.header('Access-Control-Allow-Methods', 'PUT'); // Allow the POST method
+    res.sendStatus(200);
+});
 
+
+app.get('/racedata', async (req, res) => {
+    console.log('receiveing Get request at /racedata with task: ' + req.headers['task']);
+    try{
+        const fileData = await fs.promises.readFile('data/products.json');
+        const racers = JSON.parse(fileData);
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.json(racers);
+    } catch {
+        console.error('Error loading todos:', error);
+        res.status(500).json({ error: 'Error loading todos' });
+    }
+})
 
 // Initialize the Server, and Listen to connection requests
 app.listen(port, (err) => {
