@@ -30,9 +30,12 @@ app.get('/racedata', async (req, res) => {
             res.setHeader('Access-Control-Allow-Origin', '*');
             res.json(racers);
         } catch {
-            console.error('Error loading todos:', error);
-            res.status(500).json({ error: 'Error loading todos' });
+            console.error('Error:', error);
+            res.status(500).json({ error: 'Error' });
         }    
+    }else{
+        console.error('task errada');
+        res.status(500).json({ error: 'Error' });
     }
 })
 
