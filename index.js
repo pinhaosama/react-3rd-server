@@ -8,7 +8,7 @@ const port = 3000; // the port the server will be listening on
 const textBodyParser = bodyParser.text({ limit: '20mb', defaultCharset: 'utf-8'});
 
 app.use(cors({
-    origin: 'http://localhost:5173' 
+    origin: 'http://localhost:5000' 
 }));
 
 
@@ -21,3 +21,23 @@ app.listen(port, (err) => {
     }
     console.log(`Server listening on http://localhost:${port}`);
 })
+
+app.use(bodyParser.json());
+
+app.options('/utility', (req, res) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:8000');
+  res.header('Access-Control-Allow-Headers', 'task');
+  res.header('Access-Control-Allow-Methods', 'GET');
+  res.header('Access-Control-Allow-Methods', 'POST');
+  res.sendStatus(200);
+});
+
+app.get('/getScore', textBodyParser, async function (req,res){ 
+     console.log('req.headers: ', req.headers); 
+
+    const reqOrigin = req.headers['origin']; // get the origin of the request
+    const reqTask = req.headers['task']; // get the task of the request
+
+    console.log("Processing request from " + reqOrigin + " for route " + req.url + " with method " + req.method + " for task: " + reqTask);
+
+ })
