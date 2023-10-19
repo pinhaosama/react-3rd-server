@@ -1,5 +1,5 @@
 [
-    {"name": "Gabriel", "points":"99", "car":"hellcat"},
-    {"name": "Mao", "points":"50", "car":"defender"},
-    {"name": "Soobeom", "points":"0", "car":"prius"}
+    {"name": "Gabriel", "points":"15", "car":"3", "carname" : "tank"},
+    {"name": "Mao", "points":"1", "car":"1", "carname" : "red car"},
+    {"name": "Soobeom", "points":"100", "car":"5", "carname" : "truck"}
 ]
