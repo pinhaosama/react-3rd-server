@@ -7,6 +7,7 @@ const app = express(); // instance of an Express object
 const port = 3000; // the port the server will be listening on
 const textBodyParser = bodyParser.text({ limit: '20mb', defaultCharset: 'utf-8'});
 
+const { updateScore } = require('./my_modules/score.js');
 app.use(cors({
     origin: 'http://localhost:5000' 
 }));
@@ -57,6 +58,30 @@ app.options('/utility', (req, res) => {
   res.header('Access-Control-Allow-Methods', 'POST');
   res.sendStatus(200);
 });
+
+app.post('/score', textBodyParser, async function (req, res) {
+    // print the HTTP Request Headers
+    console.log('req.headers: ', req.headers); 
+    const reqOrigin = req.headers['origin']; // get the origin of the request
+    const reqTask = req.headers['task']; // get the task of the request
+
+    console.log("Processing request from " + reqOrigin + " for route " + req.url + " with method " + req.method + " for task: " + reqTask);
+    if (reqTask == 'updateScore') {
+        console.log('req.query: ',req.body);
+        let request = JSON.parse(req.body);
+        console.log(request);
+
+        
+            console.log
+            filePath = './data/points.json';
+            studentName = 'hi';
+            score = 21;
+            await updateScore(filePath,studentName,score);
+        
+    
+    }
+
+}); 
 
 app.get('/score', textBodyParser, async function (req,res){ 
     console.log('req.headers: ', req.headers); 
