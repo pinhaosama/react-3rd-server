@@ -1,5 +1,3 @@
-[
-    {"gabriel" : {"points":"5"}},
-    {"mao" : {"points":"11"}},
-    {"soobeom" : {"points": "12"}}
-]
+{"name": "Gabriel", "points":"99", "car":"hellcat"},
+{"name": "Mao", "points":"50", "car":"defender"},
+{"name": "Soobeom", "points":"0", "car":"prius"}
