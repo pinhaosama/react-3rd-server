@@ -1,5 +1,11 @@
 [
     {"name": "Gabriel", "points":"6", "car":"3", "carname" : "tank"},
     {"name": "Mao", "points":"12", "car":"1", "carname" : "red car"},
-    {"name": "Soobeom", "points":"19", "car":"5", "carname" : "truck"}
+    {"name": "Soobeom", "points":"19", "car":"5", "carname" : "truck"},
+    {"name": "Zalpa", "points":"22", "car":"4", "carname" : "truck 1"},
+    {"name": "Maya", "points":"10", "car":"0", "carname" : "black car"},
+    {"name": "Alice", "points":"26", "car":"2", "carname" : "police car"},
+    {"name": "Kenny", "points":"8", "car":"6", "carname" : "ambulance"},
+    {"name": "Chinatsu", "points":"31", "car":"3", "carname" : "tank"},
+    {"name": "Sachika", "points":"12", "car":"5", "carname" : "truck"}
 ]
