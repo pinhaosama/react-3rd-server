@@ -24,18 +24,12 @@ async function updateScore(fileaddress, studentName, point) {
 
 
 function checkObj(studentName,point,jsonFile) {
-    const NEWSTUDENT = true;
     jsonFile.filter(function (obj) {
         console.log(obj['name']);
         if (studentName == obj['name']) {
             obj['points'] += point;
-            NEWSTUDENT = false;
         }
     })
-    if (NEWSTUDENT) {
-        jsonFile[jsonFile.length] = {'name': studentName, 'points' : point};
-        fs.writeFileSync(filePath,JSON.stringify(jsonFile ,null, 2));
-    }
 }
 
 module.exports = {
